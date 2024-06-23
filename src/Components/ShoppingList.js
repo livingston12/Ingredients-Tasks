@@ -3,17 +3,21 @@ import '../output.css';
 import Input from './Form/Input';
 import Button from './Form/Button';
 import IconClose from './IconClose';
-import { TrashIcon,PencilIcon } from '@heroicons/react/solid';
+import { TrashIcon, PencilIcon } from '@heroicons/react/solid';
 import Modal from './Modal';
+import { ChatCompletation } from './ChatGptLocal/ChatCompletation';
 
-const ShoppingList = ({ onClose, ...prop }) => {
-    const { Title, Id } = prop;
+const ShoppingList = ({ onClose, onChange, ...prop }) => {
+    const { Title, Id, Engine } = prop;
     const [ingredients, setIngredients] = useState([]);
     const [ingredientValue, setIngredientValue] = useState("");
     const [inputValue, setInputValue] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [indexValue, setIndexValue] = useState(0);
-    
+    const [reply, setReply] = useState('');
+    const [messages, setMessages] = useState([]);
+    const [error, setError] = useState(null);
+
 
     const addIngredient = () => {
         if (inputValue.trim()) {
@@ -48,9 +52,73 @@ const ShoppingList = ({ onClose, ...prop }) => {
         setIsModalOpen(!isModalOpen);
     };
 
-    return (
+    const onChangeCompletation = (value) => {
+        console.log(value);
+    };
 
+    const handleReply = (newContent) => {
+        setReply((prevReply) => prevReply + newContent);
+        console.log(newContent);
+        // Acumula la nueva respuesta
+    };
+
+    // Callback para manejar errores
+    const handleError = (error) => {
+        setError(error.message);
+    };
+
+
+    const suggestIngredient = async () => {
+        //ChatCompletation(Engine, messages, onChangeCompletation, () => { });
+        const newMessage = `que puedo cocinar con siguientes ingredientes solo dame los platos y divididos por comas: ${ingredients.join(', ')}`;
+        //console.log([messages, { role: "user", content: newMessage }]);
+        setMessages((prevMessages) => [...prevMessages, { role: "user", content: newMessage }]);
+        // messages.push(userMessage2);
+
+        if (!Engine) {
+            console.error('Engine is not initialized');
+            return;
+        }
+
+        try {
+            // Llamamos a ChatCompletation con los parámetros apropiados
+            await ChatCompletation(Engine, messages, handleReply, handleError);
+        } catch (err) {
+            console.error('Error calling ChatCompletation:', err);
+        }
+        return;
+        const userMessage = {
+            role: 'user',
+            content: `que puedo cocinar con siguientes ingredientes solo dame los platos y divididos por comas: ${ingredients.join(', ')}`,
+        };
+
+        messages.push(userMessage);
+        const chunks = await Engine.chat.completions.create({
+            messages,
+            stream: true,
+        });
+
+        let reply = '';
+
+        for await (const chunk of chunks) {
+            const content = chunk?.choices[0]?.delta?.content ?? '';
+            reply += content;
+            onChange(reply);
+        }
+
+        //setsuggestGPT(reply);
+        const assistenceMessage = {
+            role: 'assistant',
+            content: reply,
+        };
+        messages.push(assistenceMessage);
+    };
+
+
+    return (
         <div className="relative border border-green-dark mt-5  p-6 bg-gray-dark rounded-lg shadow-lg">
+
+            <p>{reply}</p>
             <div className="flex justify-end items-center">
                 <IconClose onClose={() => onClose(Id)} />
             </div>
@@ -79,7 +147,7 @@ const ShoppingList = ({ onClose, ...prop }) => {
                     <li key={index}
                         className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between items-center p-2 hover:bg-gray rounded mb-2">
                         <span className='text-white'>{ingredient}</span>
-                        
+
                         <div className='flex flex-end space-x-4 transition-none'>
                             <PencilIcon
                                 className="cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-orange hover:text-orange-dark h-6 w-6 text-gray-light"
@@ -98,9 +166,10 @@ const ShoppingList = ({ onClose, ...prop }) => {
                 <Button
                     ColorClass="bg-orange"
                     Text="Suggest dishes"
-                    onClick={onClose}
+                    onClick={suggestIngredient}
                     HoverColorClass="hover:bg-orange-dark"
                     otherClass="w-full px-6"
+
                 />
 
 
