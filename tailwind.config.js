@@ -3,22 +3,6 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   darkMode: 'selector',
   theme: {
-    colors: {
-      'blue': '#1fb6ff',
-      'purple': '#7e5bef',
-      'pink': '#ff49db',
-      'orange': '#ff7849',
-      'orange-dark': '#e6673a',
-      'green': '#13ce66',
-      'green-dark': '#0fa350',
-      'yellow': '#ffc82c',
-      'gray-dark': '#273444',
-      'gray': '#8492a6',
-      'gray-light': '#d3dce6',
-      'white': '#fff',
-      'red': '#dc3545',
-      'red-dark': '#b02a37',
-    },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
