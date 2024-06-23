@@ -43,7 +43,7 @@ const ShoppingList = ({ onClose, onChange, ...prop }) => {
     const editIngredient = () => {
         const index = indexValue;
         const newIngredients = ingredients.map((ingredient, i) => {
-            if (i === index) {
+            if (i = index) {
                 return ingredientValue;
             }
             return ingredient;
@@ -92,6 +92,7 @@ const ShoppingList = ({ onClose, onChange, ...prop }) => {
             content: `que puedo cocinar con siguientes ingredientes solo dame los platos y divididos por comas: ${ingredients.join(', ')}`,
         };
 
+
         messages.push(userMessage);
         const chunks = await Engine.chat.completions.create({
             messages,
@@ -116,9 +117,10 @@ const ShoppingList = ({ onClose, onChange, ...prop }) => {
 
 
     return (
-        <div className="relative border border-green-dark mt-5  p-6 bg-gray-dark rounded-lg shadow-lg">
+        <div className="relative border border-green-dark mt-5  p-6 bg-[var(--gray-dark)] rounded-lg shadow-lg">
 
             <p>{reply}</p>
+
             <div className="flex justify-end items-center">
                 <IconClose onClose={() => onClose(Id)} />
             </div>
@@ -132,20 +134,20 @@ const ShoppingList = ({ onClose, onChange, ...prop }) => {
                     placeholder="Add ingredient"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    otherClass="bg-gray-dark text-white flex-grow  p-2 border border-green-dark rounded-lg mr-2"
+                    otherClass="bg-[var(--gray-dark)] text-white flex-grow  p-2 border border-green-dark rounded-lg mr-2"
                 />
                 <Button
-                    ColorClass="bg-green"
+                    ColorClass="bg-[var(--green)]"
                     Text="Add"
                     onClick={addIngredient}
                     otherClass="ml-2"
-                    HoverColorClass="hover:bg-green-dark"
+                    HoverColorClass="hover:bg-[var(--green-dark)]"
                 />
             </div>
             <ul className="list-disc list-inside mb-9">
                 {ingredients.map((ingredient, index) => (
                     <li key={index}
-                        className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between items-center p-2 hover:bg-gray rounded mb-2">
+                        className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between items-center p-2 hover:bg-[var(--gray) rounded mb-2">
                         <span className='text-white'>{ingredient}</span>
 
                         <div className='flex flex-end space-x-4 transition-none'>
@@ -164,12 +166,11 @@ const ShoppingList = ({ onClose, onChange, ...prop }) => {
             </ul>
             <div className="absolute bottom-0 left-6 right-7 mb-3">
                 <Button
-                    ColorClass="bg-orange"
+                    ColorClass="bg-[var(--orange)]"
                     Text="Suggest dishes"
-                    onClick={suggestIngredient}
-                    HoverColorClass="hover:bg-orange-dark"
+                     onClick={suggestIngredient}
+                    HoverColorClass="hover:bg-[var(--orange-dark)]"
                     otherClass="w-full px-6"
-
                 />
 
 
@@ -180,13 +181,13 @@ const ShoppingList = ({ onClose, onChange, ...prop }) => {
                         placeholder="Name of ingredient"
                         value={ingredientValue}
                         onChange={(e) => setIngredientValue(e.target.value)}
-                        otherClass="bg-gray-dark text-white w-full flex-grow  p-2 border border-gray-light rounded-lg mr-2"
+                        otherClass="bg-[var(--gray-dark)] text-white w-full flex-grow  p-2 border border-gray-light rounded-lg mr-2"
                     />
                     <div className="flex justify-between">
                         <Button
                             Text="Cancel"
                             ColorClass="bg-red "
-                            HoverColorClass="hover:bg-red-dark"
+                            HoverColorClass="hover:bg-[var(--red-dark)]"
                             onClick={() => toggleModal(-1)}
                             otherClass="mt-4"
                         />
