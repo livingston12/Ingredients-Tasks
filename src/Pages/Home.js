@@ -26,7 +26,7 @@ export default function HomeNew() {
         };
 
         setShoppingLists(prev => prev.map(list => 
-            list.id == id 
+            list.id === id 
             ? { ...list, ingredients: [...list.ingredients, obj] } 
             : list
         ));
@@ -50,12 +50,12 @@ export default function HomeNew() {
             <input type="search" className="bg-gray-200 w-full border-0 p-1 outline-none" />
           </div>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-1">
             {shoppingLists.length<=0?
             <div className="flex justify-center">No hay elemento en tu lista</div>
             :
             shoppingLists.map(item=>{
-               return(<article key={item.id} className="p-5 hover:bg-gray-300" onClick={()=>{setId(item.id)}}>
+               return(<article key={item.id} className="p-5 hover:bg-gray-300 border" onClick={()=>{setId(item.id)}}>
                      <h2 className="font-semibold">{item.nombre}</h2>
                </article>)
 
@@ -78,13 +78,13 @@ export default function HomeNew() {
 
             <aside className="flex flex-col w-full h-[100dvh] bg-orange-100 ">
               <div className="w-full h-12 bg-gray-100 pl-10 pt-2 font-bold">
-                {shoppingLists.find(c=>c.id==id)!=undefined?shoppingLists.find(c=>c.id==id).nombre:''}
+                {shoppingLists.find(c=>c.id===id)!==undefined?shoppingLists.find(c=>c.id===id).nombre:''}
               </div>  
               <div className="flex flex-col gap-2 h-[84dvh] overflow-y-auto ">
-                 {shoppingLists.find(c=>c.id==id)==undefined?'':
-                  shoppingLists.find(c=>c.id==id).ingredients.length <=0?
+                 {shoppingLists.find(c=>c.id===id)===undefined?'':
+                  shoppingLists.find(c=>c.id===id).ingredients.length <=0?
             <div className="flex justify-center">No hay ingredientes</div>
-            :shoppingLists.find(c=>c.id==id).ingredients.map(item=>{
+            :shoppingLists.find(c=>c.id===id).ingredients.map(item=>{
                 return(<article key={item.id} className="flex bg-green-200 p-3 justify-between ">
                 <h2 className="font-semibold">{item.ingredient}</h2>
                 <span className="hover:text-red-700" onClick={()=>alert(item.id)}><Icons icon="x" className="w-5"></Icons></span>

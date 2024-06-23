@@ -28,7 +28,7 @@ const ShoppingList = ({ onClose, ...prop }) => {
     };
     const toggleModal = (index) => {
         ingredients.map((ingredient, i) => {
-            if (i == index) {
+            if (i === index) {
                 setIngredientValue(ingredient);
             }
         });
@@ -39,7 +39,7 @@ const ShoppingList = ({ onClose, ...prop }) => {
     const editIngredient = () => {
         const index = indexValue;
         const newIngredients = ingredients.map((ingredient, i) => {
-            if (i == index) {
+            if (i = index) {
                 return ingredientValue;
             }
             return ingredient;
