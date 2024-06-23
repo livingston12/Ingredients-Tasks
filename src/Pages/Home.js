@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Icons from "../Components/Icons";
 
@@ -103,7 +104,7 @@ export default function HomeNew() {
 
              </div>
             </aside> 
+           </div>
+);
 
-        </div>
-    );
-}
+};
