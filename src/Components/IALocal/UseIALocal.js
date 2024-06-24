@@ -33,6 +33,14 @@ export const useMLCEngine = (modelName, initProgressCallback) => {
 }
 
 export const ChatCompletation = async (engine, messages, onChangeCompletion, onError) => {
+    const abortController = new AbortController();
+    const { signal } = abortController;
+
+    const cancelStream = () => {
+        abortController.abort(); // Cancelar el stream
+        console.log('Streaming operation cancelled');
+    };
+
     try {
         if (!engine || !messages || typeof onChangeCompletion !== 'function' || typeof onError !== 'function') {
             throw new Error('Invalid arguments passed to ChatCompletation');
@@ -41,9 +49,14 @@ export const ChatCompletation = async (engine, messages, onChangeCompletion, onE
         const chunks = await engine.chat.completions.create({
             messages,
             stream: true,
+            signal
         });
 
         for await (const chunk of chunks) {
+            if (signal.aborted) {
+                console.log('Stream cancelled');
+                break;
+            }
             const content = chunk?.choices[0]?.delta?.content ?? '';
             onChangeCompletion(content);
         }
@@ -51,4 +64,6 @@ export const ChatCompletation = async (engine, messages, onChangeCompletion, onE
         onError(err);
         console.error('Error during chat completion:', err);
     }
+
+    return cancelStream;
 };

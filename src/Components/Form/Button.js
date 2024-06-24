@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export default function Button({ Text, ColorClass, HoverColorClass, onClick, otherClass }) {
+export default function Button({ onClick, children, ...prop }) {
     const buttonClass = classNames(
         'transition',
         'ease-in-out',
@@ -9,21 +9,13 @@ export default function Button({ Text, ColorClass, HoverColorClass, onClick, oth
         'hover:-translate-y-1',
         'hover:scale-110',
         'duration-300',
-        ColorClass,
-        HoverColorClass,
-        'text-white',
-        'font-bold',
-        'py-2',
-        'px-4',
-        'rounded',
-        'focus:outline-none',
-        otherClass
-        
+        prop.className
     );
     return (
         <button
-            className={buttonClass} onClick={onClick}>
-            {Text}
+            className={buttonClass} onClick={onClick}
+        >
+            {children}
         </button>
     );
 }
