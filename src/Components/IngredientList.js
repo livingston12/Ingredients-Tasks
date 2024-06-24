@@ -66,17 +66,18 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
         }
     }
     return (
-        <aside className="flex flex-col w-full h-[100dvh] bg-[var(--gray-dark)]">
-            <div className="w-full h-12 bg-gray-300 pl-10 pt-2 font-bold">
+        <aside className="flex flex-col w-full h-full md:h-[100dvh] bg-gray-100">
+            {/* <div className="w-full h-12  pl-4 pt-2 font-bold">
                 {ingredientList !== undefined ? ingredientList.nombre : ''}
-            </div>
-            <div className="flex flex-col gap-2 h-[84dvh] overflow-y-auto ">
+            </div>  */}
+            <div className="flex flex-col-reverse md:flex-col">
+           <div className="flex flex-col gap-2 h-1/3 md:h-[85dvh] p-5 overflow-y-auto ">
                 {ingredientList === undefined ? '' :
                     ingredientList.ingredients.length <= 0 ?
-                        <div className="flex justify-center text-white">No hay ingredientes</div>
+                        <div className="flex justify-center">No hay ingredientes</div>
                         : ingredientList.ingredients.map(item => {
                             return (
-                                <article key={item.id} className="flex bg-gray-400 p-3 justify-between ">
+                                <article key={item.id} className="flex bg-gray-200 mx-5 rounded-lg p-3 justify-between ">
                                     <h2 className="font-semibold">{item.ingredient}</h2>
                                     <Button>
                                         <span className="hover:text-red-700" onClick={() => handlenRemoveIngredient(item.id)}><Icons icon="x" className="w-5"></Icons></span>
@@ -86,7 +87,8 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
                         })}
             </div>
 
-            <div className="w-full bg-gray-300 flex items-center">
+            <div className="w-full bg-gray-100 flex flex-wrap items-center justify-center">
+
                 <Button
                     onClick={handlenRecipes}
                     disabled={!ingredient}
@@ -95,7 +97,7 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
                     Recetas
                 </Button>
 
-                <form className="p-5 w-full" onSubmit={handleSubmit}>
+                <form className="p-5 min-w-[80%]" onSubmit={handleSubmit}>
                     <div className="flex w-full bg-white overflow-hidden rounded-lg">
                         <textarea
                             value={ingredient}
@@ -110,6 +112,9 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
                     </div>
                 </form>
             </div>
+            </div>
+ 
+
             <Drawer
                 isOpenAddList={isOpenAddList}
                 setIsOpenAddList={handlenCloseRecipes}
