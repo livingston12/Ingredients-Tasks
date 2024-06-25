@@ -5,21 +5,20 @@ import Button from "./Form/Button";
 export default function GroupList({ shoppingLists, setIsOpenAddList, setId, handlenRemoveGroup }) {
 
     return (
-        <main className="flex flex-col w-[40%] h-full bg-[var(--gray-dark)] overflow-y-auto ">
-            <div className="flex h-12 w-full justify-between items-center p-5">
-                <h1 className="text-center font-bold text-xl text-white">My Lists</h1>
+        <main className="flex flex-col w-full md:w-1/3 md:h-full bg-white overflow-y-auto ">
+            <div className="flex h-12 w-full justify-between items-center p-5 mt-3">
+                <h1 className="text-center font-bold text-xl text-[#265080]">My Lists</h1>
                 <div className="flex">
                     <Button
                         className="px-2"
-                        onClick={() => setIsOpenAddList(prev => !prev)}
-                    >
-                        <Icons icon="plus" className="w-6 text-green-600 fill-current " />
+                        onClick={() => setIsOpenAddList(prev => !prev)}                    >
+                        <Icons icon="plus" className="w-6 text-[#265080] fill-current " />
                     </Button>
 
                     <Button className="px-2 text-white">
                         <Icons
                             icon="elipsis-vertical"
-                            className="w-1 text-white fill-current"
+                            className="w-1 text-black fill-current"
                         />
                     </Button>
                 </div>
@@ -27,18 +26,18 @@ export default function GroupList({ shoppingLists, setIsOpenAddList, setId, hand
             <div className="flex p-2 w-full">
                 <div className="flex w-full bg-gray-200 overflow-hidden rounded-lg">
                     <Icons icon="search" className="w-5 ml-3" />
-                    <input type="search" className="bg-[var(--gray-light)] w-full border-0 p-1 outline-none" />
+                    <input type="search" className="bg-gray-200 w-full border-0 p-1 outline-none" placeholder="Search..." />
                 </div>
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1  max-h-[140px] md:max-h-[89dvh] overflow-y-auto">
                 {shoppingLists.length <= 0 ?
-                    <div className="flex justify-center text-white">Empty elements</div>
+                    <div className="flex justify-center text-black">Empty elements</div>
                     :
                     shoppingLists.map(item => {
                         return (
                             <article 
                                 key={item.id}
-                                className={`flex ${item.isClicked ? 'bg-green-700' : 'bg-gray-300'}  ${item.isClicked ? 'hover:bg-green-800' : 'hover:bg-gray-400'} justify-between p-5 hover:bg-gray-400`} 
+                                className={`flex ${item.isClicked ? 'bg-green-300' : 'bg-gray-200'}  ${item.isClicked ? 'hover:bg-green-200' : 'hover:bg-gray-300'} justify-between p-5 mx-2 rounded-lg hover:bg-gray-400`} 
                                 onClick={() => { setId(item.id) }}
                             >
                                 <h2 className="font-semibold">{item.nombre}</h2>

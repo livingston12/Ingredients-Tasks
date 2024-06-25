@@ -66,7 +66,7 @@ export default function HomeNew() {
     }
 
     return (
-        <div className="flex bg-gray-200">
+        <div className="flex flex-col bg-white md:flex-row">
             <GroupList
                 shoppingLists={shoppingLists}
                 setIsOpenAddList={setIsOpenAddList}
