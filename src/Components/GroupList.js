@@ -7,18 +7,18 @@ export default function GroupList({ shoppingLists, setIsOpenAddList, setId, hand
     return (
         <main className="flex flex-col w-full md:w-1/3 md:h-full bg-white overflow-y-auto ">
             <div className="flex h-12 w-full justify-between items-center p-5 mt-3">
-                <h1 className="text-center font-bold text-xl text-[#265080]">My Lists</h1>
+                <h1 className="text-center font-bold text-2xl text-[#265080]">My Lists</h1>
                 <div className="flex">
                     <Button
                         className="px-2"
                         onClick={() => setIsOpenAddList(prev => !prev)}                    >
-                        <Icons icon="plus" className="w-6 text-[#265080] fill-current " />
+                        <Icons icon="plus" className="w-8 text-[#265080] fill-current " />
                     </Button>
 
-                    <Button className="px-2 text-white">
+                    <Button className="px-2 pt-2 text-white">
                         <Icons
                             icon="elipsis-vertical"
-                            className="w-1 text-black fill-current"
+                            className="w-[6px] text-black fill-current"
                         />
                     </Button>
                 </div>
