@@ -10,7 +10,7 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
     const [reply, setReply] = useState('');
     const [messages, setMessages] = useState([
     ]);
-    const [error, setError] = useState(null);
+    const [_, setError] = useState(null);
     const [cancelStream, setCancelStream] = useState(null);
 
     const ingredientList = shoppingLists.find(c => c.id === id);

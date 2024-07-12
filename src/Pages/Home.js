@@ -11,7 +11,7 @@ export default function HomeNew() {
     const [id, setId] = useState(0);
     const [isOpenAddList, setIsOpenAddList] = useState(false);
     const [groupIngredient, setGroupIngredient] = useState('');
-    const { engine, error } = useMLCEngine('gemma-2b-it-q4f32_1-MLC', (e) => { console.log(e) });
+    const { engine, _ } = useMLCEngine('gemma-2b-it-q4f32_1-MLC', (e) => { console.log(e) });
 
     const handlenSubmit = (event) => {
         event.preventDefault();
@@ -56,7 +56,7 @@ export default function HomeNew() {
     }
 
     const setCurrentId = (id) => {
-        const newGroups = shoppingLists.map(list => {
+        _ = shoppingLists.map(list => {
 
             list.id === id ? list.isClicked = true : list.isClicked = false;
             return list;
