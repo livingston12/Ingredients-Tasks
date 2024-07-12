@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ingredientstasks/static/css/main.5c0a1304.css",
-    "main.js": "/ingredientstasks/static/js/main.3c56c125.js",
-    "static/js/453.7a03491e.chunk.js": "/ingredientstasks/static/js/453.7a03491e.chunk.js",
-    "index.html": "/ingredientstasks/index.html",
-    "main.5c0a1304.css.map": "/ingredientstasks/static/css/main.5c0a1304.css.map",
-    "main.3c56c125.js.map": "/ingredientstasks/static/js/main.3c56c125.js.map",
-    "453.7a03491e.chunk.js.map": "/ingredientstasks/static/js/453.7a03491e.chunk.js.map"
+    "main.css": "/IngredientsTasks/static/css/main.5c0a1304.css",
+    "main.js": "/IngredientsTasks/static/js/main.58d33b7f.js",
+    "static/js/453.7a03491e.chunk.js": "/IngredientsTasks/static/js/453.7a03491e.chunk.js",
+    "index.html": "/IngredientsTasks/index.html",
+    "main.5c0a1304.css.map": "/IngredientsTasks/static/css/main.5c0a1304.css.map",
+    "main.58d33b7f.js.map": "/IngredientsTasks/static/js/main.58d33b7f.js.map",
+    "453.7a03491e.chunk.js.map": "/IngredientsTasks/static/js/453.7a03491e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c0a1304.css",
-    "static/js/main.3c56c125.js"
+    "static/js/main.58d33b7f.js"
   ]
 }
