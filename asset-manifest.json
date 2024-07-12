@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/IngredientsTasks.github.io/static/css/main.5c0a1304.css",
-    "main.js": "/IngredientsTasks.github.io/static/js/main.e57f86bf.js",
+    "main.js": "/IngredientsTasks.github.io/static/js/main.50e96b90.js",
     "static/js/453.7a03491e.chunk.js": "/IngredientsTasks.github.io/static/js/453.7a03491e.chunk.js",
     "index.html": "/IngredientsTasks.github.io/index.html",
     "main.5c0a1304.css.map": "/IngredientsTasks.github.io/static/css/main.5c0a1304.css.map",
-    "main.e57f86bf.js.map": "/IngredientsTasks.github.io/static/js/main.e57f86bf.js.map",
+    "main.50e96b90.js.map": "/IngredientsTasks.github.io/static/js/main.50e96b90.js.map",
     "453.7a03491e.chunk.js.map": "/IngredientsTasks.github.io/static/js/453.7a03491e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c0a1304.css",
-    "static/js/main.e57f86bf.js"
+    "static/js/main.50e96b90.js"
   ]
 }
