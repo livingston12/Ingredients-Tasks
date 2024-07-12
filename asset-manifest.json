@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/IngredientsTasks.github.io/static/css/main.5c0a1304.css",
-    "main.js": "/IngredientsTasks.github.io/static/js/main.8a9732b7.js",
-    "static/js/453.7a03491e.chunk.js": "/IngredientsTasks.github.io/static/js/453.7a03491e.chunk.js",
-    "index.html": "/IngredientsTasks.github.io/index.html",
-    "main.5c0a1304.css.map": "/IngredientsTasks.github.io/static/css/main.5c0a1304.css.map",
-    "main.8a9732b7.js.map": "/IngredientsTasks.github.io/static/js/main.8a9732b7.js.map",
-    "453.7a03491e.chunk.js.map": "/IngredientsTasks.github.io/static/js/453.7a03491e.chunk.js.map"
+    "main.css": "/ingredientstasks/static/css/main.5c0a1304.css",
+    "main.js": "/ingredientstasks/static/js/main.7a9a8f2f.js",
+    "static/js/453.7a03491e.chunk.js": "/ingredientstasks/static/js/453.7a03491e.chunk.js",
+    "index.html": "/ingredientstasks/index.html",
+    "main.5c0a1304.css.map": "/ingredientstasks/static/css/main.5c0a1304.css.map",
+    "main.7a9a8f2f.js.map": "/ingredientstasks/static/js/main.7a9a8f2f.js.map",
+    "453.7a03491e.chunk.js.map": "/ingredientstasks/static/js/453.7a03491e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c0a1304.css",
-    "static/js/main.8a9732b7.js"
+    "static/js/main.7a9a8f2f.js"
   ]
 }
