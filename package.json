@@ -2,7 +2,7 @@
   "name": "ingredients_task",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://livingston12.github.io/IngredientsTasks.github.io/",
+  "homepage": "https://livingston12.github.io/ingredientstasks/",
   "dependencies": {
     "@headlessui/react": "^2.1.0",
     "@heroicons/react": "^1.0.6",
