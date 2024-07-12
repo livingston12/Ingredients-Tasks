@@ -43,7 +43,7 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
 
             const listIngredients = ingredientList.ingredients.map(item => item.ingredient);
 
-            const newMessage = `Muestra recetas con los siguientes ingredientes en orden y menos de 500 palabras: [${listIngredients.join(',')}]`;
+            const newMessage = `Show recipes with the following ingredients in order and less than 500 words: [${listIngredients.join(',')}]`;
             const userMessage = [...messages, { role: "user", content: newMessage }];
             const cancel = await ChatCompletation(engine, userMessage, handleReply, handleError);
             setCancelStream(() => cancel);
@@ -94,7 +94,7 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
                     disabled={!ingredient}
                     className={`bg-blue-600 mx-2 mt-2  h-16 w-full md:w-[12%] rounded-lg text-white text-center ${isDisabledClass}`}
                 >
-                    Recetas
+                    Recipes
                 </Button>
 
                 <form className="p-2 min-w-full  md:min-w-[80%] " onSubmit={handleSubmit}>
@@ -104,7 +104,7 @@ const IngredientList = ({ shoppingLists, id, handlenSubmitIngredient, handlenRem
                             onChange={(e) => setIngredient(e.target.value)}
                             name="ingredient"
                             className={`w-full border-0 p-2 outline-none  resize-none ${isDisabledClass}`}
-                            placeholder="Agregar Ingrediente "
+                            placeholder="Add Ingredients..."
                         />
                         <Button className={`p-5 ${isDisabledClass}`}>
                             <Icons icon="send" className="w-5" />
